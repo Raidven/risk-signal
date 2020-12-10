@@ -1,0 +1,39 @@
+BS_component,BS_item_code,BS_line_item,Date,BS_amount,Duration_IRS,Beta_equity,Sensitivity_forex
+Liability,LIA_EQU_CAP,Equity capital,30/09/20,50,0,0,0
+Liability,LIA_DEP_CAS,Deposit CASA,30/09/20,250,-0.25,0,0
+Liability,LIA_DEP_TDD,Deposit TD,30/09/20,200,-1,0,0
+Liability,LIA_BOR_CBB,Borrowing from central bank,30/09/20,50,-3.5,0,0
+Liability,LIA_BOR_STT,Short term borrowing,30/09/20,150,-1.5,0,0
+Liability,LIA_BOR_LTT,Long term borrowing,30/09/20,250,-5,0,0
+Liability,LIA_OTH_LIA,Other liabilities,30/09/20,50,0,0,0
+Asset,ASS_CAS_CAS,Cash,30/09/20,50,0,0,0
+Asset,ASS_DEP_CBB,Deposit with central bank,30/09/20,25,0.1,0,0
+Asset,ASS_DEP_OTH,Deposit with other bank,30/09/20,25,0.1,0,0
+Asset,ASS_INV_EQU,Investment – equity,30/09/20,100,0,1.5,0
+Asset,ASS_INV_GSE,Investment – GSEC,30/09/20,150,5,0,0
+Asset,ASS_INV_FII,Investment – fixed income,30/09/20,50,2.5,0,0.5
+Asset,ASS_INV_FXI,Investment – forex,30/09/20,50,0,0,0
+Asset,ASS_LOA_RET,Loans – retail,30/09/20,250,3,0,0
+Asset,ASS_LOA_WSA,Loans – wholesale,30/09/20,250,1,0,0
+Asset,ASS_OTH_ASS,Other assets,30/09/20,50,0,0,0
+OffBS,OFF_LCS_SBL,LC & SBLC,30/09/20,200,0,0,0
+OffBS,OFF_SWA_DER,Swaps & derivatives,30/09/20,300,5,0,0
+Liability,LIA_EQU_CAP,Equity capital,31/10/20,51,0,0,0
+Liability,LIA_DEP_CAS,Deposit CASA,31/10/20,255,-0.25,0,0
+Liability,LIA_DEP_TDD,Deposit TD,31/10/20,204,-1,0,0
+Liability,LIA_BOR_CBB,Borrowing from central bank,31/10/20,51,-3.5,0,0
+Liability,LIA_BOR_STT,Short term borrowing,31/10/20,153,-1.5,0,0
+Liability,LIA_BOR_LTT,Long term borrowing,31/10/20,255,-5,0,0
+Liability,LIA_OTH_LIA,Other liabilities,31/10/20,51,0,0,0
+Asset,ASS_CAS_CAS,Cash,31/10/20,51,0,0,0
+Asset,ASS_DEP_CBB,Deposit with central bank,31/10/20,25.5,0.1,0,0
+Asset,ASS_DEP_OTH,Deposit with other bank,31/10/20,25.5,0.1,0,0
+Asset,ASS_INV_EQU,Investment – equity,31/10/20,102,0,1.5,0
+Asset,ASS_INV_GSE,Investment – GSEC,31/10/20,153,5,0,0
+Asset,ASS_INV_FII,Investment – fixed income,31/10/20,51,2.5,0,0.5
+Asset,ASS_INV_FXI,Investment – forex,31/10/20,51,0,0,0
+Asset,ASS_LOA_RET,Loans – retail,31/10/20,255,3,0,0
+Asset,ASS_LOA_WSA,Loans – wholesale,31/10/20,255,1,0,0
+Asset,ASS_OTH_ASS,Other assets,31/10/20,51,0,0,0
+OffBS,OFF_LCS_SBL,LC & SBLC,31/10/20,204,0,0,0
+OffBS,OFF_SWA_DER,Swaps & derivatives,31/10/20,306,5,0,0

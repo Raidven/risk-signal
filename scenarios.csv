@@ -1,0 +1,4 @@
+Risk_factor,green,amber,red
+Delta_YTM,0.001,0.002,0.004
+Delta_S,0.1,0.15,0.2
+Delta_FX,0.1,0.15,0.2

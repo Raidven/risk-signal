@@ -1,0 +1,49 @@
+Parameter_code,Region_of_risk,Source_of_crisis,Product_or_component,Parameter,Amber_threshold,Red_threshold,Type_threshold,Weights
+BANDEP01,Bank specific,Deposits,Non maturity deposits,Daily change of SA deposits,-0.05,-0.10,Less,0.1250
+BANDEP02,Bank specific,Deposits,Non maturity deposits,Weekly change of SA deposits,-0.01,-0.15,Less,0.1250
+BANDEP03,Bank specific,Deposits,Non maturity deposits,Daily change of CA deposits,-0.05,-0.10,Less,0.1250
+BANDEP04,Bank specific,Deposits,Non maturity deposits,Weekly change of CA deposits,-0.01,-0.15,Less,0.1250
+BANDEP05,Bank specific,Deposits,Term deposits,Daily premature withdrawal,0.10,0.15,More,0.1250
+BANDEP06,Bank specific,Deposits,Term deposits,Weekly premature withdrawal,0.20,0.30,More,0.1250
+BANDEP07,Bank specific,Deposits,Term deposits,Daily reduction rate of new deposits,0.20,0.30,More,0.1250
+BANDEP08,Bank specific,Deposits,Term deposits,Weekly reduction rate of new deposits (MoM),0.40,0.60,More,0.1250
+BANCRE01,Bank specific,Credit,Collections,Reduction rate of monthly collections (MoM),0.10,0.30,More,0.1667
+BANCRE02,Bank specific,Credit,Collections,Reduction rate of quarterly collections (QoQ),0.20,0.50,More,0.1667
+BANCRE03,Bank specific,Credit,Downgrade,Downgrade of top-10 corporate borrowers,1.00,3.00,More,0.1667
+BANCRE04,Bank specific,Credit,Downgrade,Rating downgrade of portfolio (no of notches),1.00,2.00,More,0.1667
+BANCRE05,Bank specific,Credit,Disbursal,Increment rate of monthly disbursement (MoM),0.10,0.30,More,0.1667
+BANCRE06,Bank specific,Credit,Disbursal,Increment rate of quarterly disbursement (QoQ),0.20,0.50,More,0.1667
+BANFTP01,Bank specific,FTP_Profitability,Sudden narrowing of bid-ask spread,Change of spread in a week (basis points),10.00,20.00,More,0.1250
+BANFTP02,Bank specific,FTP_Profitability,Sudden narrowing of bid-ask spread,Change of spread in a month (basis points),20.00,30.00,More,0.1250
+BANFTP03,Bank specific,FTP_Profitability,Sudden lowering of bid rates,Change of rates in a week (basis points),10.00,20.00,More,0.1250
+BANFTP04,Bank specific,FTP_Profitability,Sudden lowering of bid rates,Change of rates in a month (basis points),20.00,30.00,More,0.1250
+BANFTP05,Bank specific,FTP_Profitability,Increased margin to liability units,Change of margin in a week (basis points),10.00,20.00,More,0.1250
+BANFTP06,Bank specific,FTP_Profitability,Increased margin to liability units,Change of margin in a month (basis points),20.00,30.00,More,0.1250
+BANNEW01,Bank specific,News,Financial soundness,Sentiment analysis level,998.00,999.00,Equal,0.2500
+BANNEW02,Bank specific,News,Service level,Sentiment analysis level,998.00,999.00,Equal,0.2500
+BANNEW03,Bank specific,News,Fraud (internal),Sentiment analysis level,998.00,999.00,Equal,0.2500
+BANNEW04,Bank specific,News,Fraud (external),Sentiment analysis level,998.00,999.00,Equal,0.2500
+MAREQU01,Market specific / Macro,Equity_market,Bank's share,Common share price fall in a day,0.05,0.10,More,0.1111
+MAREQU02,Market specific / Macro,Equity_market,Bank's share,Common share price fall in a week,0.05,0.10,More,0.1111
+MAREQU03,Market specific / Macro,Equity_market,Bank's share,Common share price fall in a month,0.10,0.20,More,0.1111
+MAREQU04,Market specific / Macro,Equity_market,Bank's share,Change in banking share - change in index (daily),0.05,0.10,More,0.1111
+MAREQU05,Market specific / Macro,Equity_market,Bank's share,Change in banking share - change in index (weekly),0.05,0.10,More,0.1111
+MAREQU06,Market specific / Macro,Equity_market,Bank's share,Change in banking share - change in index (monthly),0.05,0.10,More,0.1111
+MAREQU07,Market specific / Macro,Equity_market,Banking industry,Banking index fall in a day,0.05,0.10,More,0.1111
+MAREQU08,Market specific / Macro,Equity_market,Banking industry,Banking index fall in a week,0.05,0.10,More,0.1111
+MAREQU09,Market specific / Macro,Equity_market,Banking industry,Banking index fall in a month,0.10,0.20,More,0.1111
+MARINT01,Market specific / Macro,Interest_rate,Interest rate risk,USD LIBOR O/N,0.10,0.15,More,0.1429
+MARINT02,Market specific / Macro,Interest_rate,Interest rate risk,USD LIBOR 1M,0.10,0.15,More,0.1429
+MARINT03,Market specific / Macro,Interest_rate,Interest rate risk,USD LIBOR 3M,0.10,0.15,More,0.1429
+MARINT04,Market specific / Macro,Interest_rate,Interest rate risk,USD LIBOR 6M,0.10,0.15,More,0.1429
+MARINT05,Market specific / Macro,Interest_rate,Interest rate risk,USD LIBOR 1Y Swap rate,0.10,0.15,More,0.1429
+MARINT06,Market specific / Macro,Interest_rate,Interest rate risk,USD LIBOR 3Y Swap rate,0.10,0.15,More,0.1429
+MARINT07,Market specific / Macro,Interest_rate,Basis rate,3m LIBOR - 3m OIS,0.10,0.15,More,0.1429
+MARINT08,Market specific / Macro,International_economics,FX rate volatility,Change in CME Euro volatility index (daily),0.10,0.30,More,0.5000
+MARINT09,Market specific / Macro,International_economics,FX rate volatility,Change in CME Euro volatility index (weekly),0.20,0.40,More,0.5000
+MARCRE01,Market specific / Macro,Credit_sentiment,Bank's 5Y CDS spread,Increasing (daily),0.10,0.15,More,0.1667
+MARCRE02,Market specific / Macro,Credit_sentiment,Bank's 5Y CDS spread,Increasing (weekly),0.10,0.15,More,0.1667
+MARCRE03,Market specific / Macro,Credit_sentiment,Bank's 5Y CDS spread - Index (which index),Increasing (daily),0.10,0.15,More,0.1667
+MARCRE04,Market specific / Macro,Credit_sentiment,Bank's 5Y CDS spread - Index (which index),Increasing (weekly),0.10,0.15,More,0.1667
+MARCRE05,Market specific / Macro,Credit_sentiment,Banking sector rating / outlook,Downgrade in last 1 week by any rating agency,1.00,2.00,More,0.1667
+MARCRE06,Market specific / Macro,Credit_sentiment,Sovereign (USA) rating / outlook,Downgrade in last 1 week by any rating agency,1.00,2.00,More,0.1667
