@@ -10,13 +10,12 @@ import re
 
 st.title('Liquidity Management')
 
-url_parameter_threshold = 'parameters.csv'
-url_parameter_value = 'parameter_values.csv'
-url_balance_sheet = 'balance_sheet.csv'
-url_cashflow_master_data = 'cashflow_master_data.csv'
-url_scenarios = 'scenarios.csv'
+url_parameter_threshold = './parameters.csv'
+url_parameter_value = './parameter_values.csv'
+url_balance_sheet = './balance_sheet.csv'
+url_cashflow_master_data = './cashflow_master_data.csv'
+url_scenarios = './scenarios.csv'
 
-# @st.cache
 def load_data(url):
     data = pd.read_csv(url)
     return data
