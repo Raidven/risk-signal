@@ -71,20 +71,50 @@ for i in range(len(positions)):
     positions.loc[i, 'Risk_Score'] = Risk_Score
     positions.loc[i, 'Wtd_Risk_Score'] = positions.loc[i, 'Weights'] * Risk_Score
     
-Score = positions.groupby('Source_of_crisis').agg(Score_sum = ('Wtd_Risk_Score', sum)).reset_index()
-Score1 = positions.groupby(['Source_of_crisis','Product_or_component']).agg(Score_sum = ('Wtd_Risk_Score', sum))
-grouped = Score1.groupby(['Source_of_crisis','Product_or_component'])['Score_sum'].nlargest()
-grp = grouped.reset_index()
+
+#Score_product = positions.groupby(['Source_of_crisis','Product_or_component','Parameter']).agg({Score_sum = ('Wtd_Risk_Score', sum),(Max_score = 'Risk_Score',max)})
+d = {'Wtd_Risk_Score':'Score_sum', 'Risk_Score':'Risk_Score_Max'}
+Score_product_Param = positions.groupby(['Source_of_crisis','Product_or_component','Parameter']).agg({'Wtd_Risk_Score':'sum','Risk_Score':'max'}).rename(columns=d)
+Score_product_Param = Score_product_Param.groupby(['Source_of_crisis','Product_or_component','Parameter'])['Score_sum'].nlargest()
+Score_product_Param = Score_product_Param.reset_index()
+
+
+
+
+Score_product = positions.groupby(['Source_of_crisis','Product_or_component',]).agg({'Wtd_Risk_Score':'sum','Risk_Score':'max'}).rename(columns=d)
+
+Score_product = Score_product.groupby(['Source_of_crisis','Product_or_component'])['Score_sum'].nlargest()
+Score_product = Score_product.reset_index()
+
+
+
 def clean_non_alphanumeric1 (txxt2):
     return re.sub('_', ' ', txxt2)
-grp['Source_of_crisis'] = grp['Source_of_crisis'].apply(clean_non_alphanumeric1)
-grouped22 = grp.rename(columns ={'Source_of_crisis':'Source of Crisis','Product_or_component':'Product','Score_sum':'Score'})
+Score_product['Source_of_crisis'] = Score_product['Source_of_crisis'].apply(clean_non_alphanumeric1)
+Score_product_Param['Source_of_crisis'] = Score_product_Param['Source_of_crisis'].apply(clean_non_alphanumeric1)
+Score_product['Risk_Score'] = Score_product['Product_or_component'] + ", " + "Score:" + Score_product['Score_sum'].astype(str)
 
 
+
+Score_product_Param = pd.merge(Score_product_Param,Score_product,how='left',on='Product_or_component')
+Score_product = Score_product.rename(columns ={'Source_of_crisis':'Source of Crisis','Product_or_component':'Product','Score_sum':'Score'})
+Score_product_Param1 = Score_product_Param[['Source_of_crisis_x','Product_or_component','Parameter','Score_sum_x','Risk_Score']]
+Score_product_Param1 = Score_product_Param1.rename(columns ={'Source_of_crisis_x':'Source of Risk','Product_or_component':'Component','Parameter':'Parameter','Score_sum_x':'Score','Risk_Score':'Risk_Score'})
+
+
+
+Score = positions.groupby('Source_of_crisis').agg(Score_sum = ('Wtd_Risk_Score', sum))
 Score['Risk_bucket'] = np.where(Score['Score_sum']<=5, 'green',
                                          np.where(Score['Score_sum']<=7, 'amber', 'red'))
+
 Score = Score.reset_index()
 Score['Concat'] = Score['Source_of_crisis'] + "_" + Score['Risk_bucket']
+
+RA_Source = Score.loc[(Score['Risk_bucket'].isin(['red','amber']))]
+
+
+
+
 
 liquidity_flow['stressed_cashflow_factor'] = liquidity_flow['Cashflow_factor_base']
 for col_liq in range(liquidity_flow.shape[1]):
@@ -202,17 +232,26 @@ if (selection == "Risk Position"):
     ).properties(height = 300)
     
     st.altair_chart(bars, use_container_width=True)
-    st.subheader("Drill Down By Product")
-    if not st.checkbox("Hide", True, key = '71'):
-        Crisis_Source = tuple(grouped22['Source of Crisis'].unique())        
-        Crisis_Source2 = st.selectbox("Source of Crisis",Crisis_Source, key = 25)
-        grouped23= grouped22.loc[(grouped22['Source of Crisis']==Crisis_Source2)]
-        st.table(grouped23)
+
+        
     st.sidebar.subheader("Trend analysis")
     if not st.sidebar.checkbox("Hide", True, key = '5'):
          st.subheader("Last 12 months")
          st.write("Coming soon...")
     st.markdown("It can be noted that some items have low score while some have high. Accordingly, thise risk-causing factors are divided as `Low`, `Medium` and `High` impactful events. Those causes will have varied impact on various balance sheet line items. It is assumed that these causes will be in effect for next 30 days.")
+    
+    st.subheader("Drill Down By Component")
+    if not st.checkbox("Hide", True, key = '71'):
+        Crisis_Source = list(RA_Source['Source_of_crisis'].unique())
+     
+        Crisis_Source2 = st.radio("Source of Risk",Crisis_Source, key = 25)
+        Score_product21 = Score_product.loc[(Score_product['Source of Crisis']==Crisis_Source2)]
+        Score_product22 = list(Score_product21['Risk_Score'])
+        Score_product3 = st.radio('Component',Score_product22, key = 26)
+        Score_product_Param2 = Score_product_Param1.loc[(Score_product_Param1['Risk_Score']==Score_product3)]
+        Score_product_Param21 = Score_product_Param2[['Source of Risk','Component','Parameter','Score']]
+        st.table(Score_product_Param21)
+    
     st.sidebar.subheader("Attribute analysis")
     if not st.sidebar.checkbox("Hide", True, key = '6'):
          st.subheader("Top 3 attributes")
